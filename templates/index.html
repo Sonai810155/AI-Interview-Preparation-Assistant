@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>AI Interview Assistant</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+
+    <h1>AI Interview Preparation Assistant</h1>
+
+    <form method="POST" action="/check">
+
+        <label>Select Interview Domain:</label><br>
+        <select name="domain">
+            <option value="Solar">Solar</option>
+            <option value="Instrumentation">Instrumentation</option>
+            <option value="IoT">IoT</option>
+            <option value="Python">Python</option>
+            <option value="Backend Development">Backend Development</option>
+            <option value="PLC">PLC</option>
+            <option value="Electronics">Electronics</option>
+        </select>
+        <br><br>
+
+        <label>Interview Question:</label><br>
+        <input type="text" name="question"><br><br>
+
+        <label>Your Answer:</label><br>
+        <textarea name="answer"></textarea><br><br>
+
+        <button type="submit">Check Answer</button>
+
+    </form>
+
+    {% if feedback %}
+        <h2>AI Feedback:</h2>
+        <p>{{ feedback }}</p>
+        <a href="/download">
+    <button type="button">Download PDF Report</button>
+</a>
+    {% endif %}
+
+</body>
+</html>
